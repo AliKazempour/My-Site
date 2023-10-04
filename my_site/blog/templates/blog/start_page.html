@@ -1,10 +1,55 @@
 {% extends "base.html" %}
-
+{% load static %}
     {% block title %}
        Ali Kazempour
     {% endblock  %}
 
+    {% block css_files %}
+        <link rel="stylesheet" href="{% static "blog/index.css" %}"/>
+    {% endblock %}
 
     {% block content %}
-        <h1>I'm Ali Kazempour.Welcome to my Blog.</h1>
+        <header id="main-navigation">
+            <a href="">Ali's Blog </a>
+        </header>
+        <nav>
+            <a href=""> All Posts </a>
+        </nav>
+
+        <section id="welcome">
+         <header>
+            <img src="" alt="Ali - The Author Of This Blog"/>
+            <h2>AliKazempour's Blog</h2>
+         </header>
+         <p>Hi!I am Ali Kazempour and I love to blog about tech and the world!</p>
+        </section>
+
+        <section id="lastest-posts">
+            <h2>My Lastest Thoughts</h2>
+            <ul>
+                <li>
+                    <article class="post">
+                        <a href="">
+                            <img src="" alt="ChatGPT"/>
+                            <div class="post__content">
+                                <h3>ChatGPT</h3>
+                                <p>ChatGPT, which stands for Chat Generative Pre-trained Transformer,
+                                    is a large language model-based chatbot developed by OpenAI 
+                                    and launched on November 30, 2022, which enables users to refine 
+                                    and steer a conversation towards a desired length, format, style, level of detail, and language
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+                </li>
+            </ul>
+
+        </section>
+
+        <section id="about">
+            <h2>What I do ?</h2>
+            <p>I love programing,I love helping to others and I enjoy new technologies in general!</p>
+            <p>My goal is to keep growing as a developer </p>
+
+        </section>
     {% endblock  %}
