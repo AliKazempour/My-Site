@@ -5,17 +5,11 @@
     {% endblock  %}
 
     {% block css_files %}
+        <link rel="stylesheet" href="{% static "blog/post.css" %}"/>
         <link rel="stylesheet" href="{% static "blog/index.css" %}"/>
     {% endblock %}
 
     {% block content %}
-        <header id="main-navigation">
-            <a href="">Ali's Blog </a>
-        </header>
-        <nav>
-            <a href=""> All Posts </a>
-        </nav>
-
         <section id="welcome">
          <header>
             <img src="{% static "blog/images/Ali.jpg" %}" alt="Ali - The Author Of This Blog"/>
@@ -27,21 +21,7 @@
         <section id="lastest-posts">
             <h2>My Lastest Thoughts</h2>
             <ul>
-                <li>
-                    <article class="post">
-                        <a href="">
-                            <img src="{% static "blog/images/chatgpt.png" %}" alt="ChatGPT"/>
-                            <div class="post__content">
-                                <h3>ChatGPT</h3>
-                                <p>ChatGPT, which stands for Chat Generative Pre-trained Transformer,
-                                    is a large language model-based chatbot developed by OpenAI 
-                                    and launched on November 30, 2022, which enables users to refine 
-                                    and steer a conversation towards a desired length, format, style, level of detail, and language
-                                </p>
-                            </div>
-                        </a>
-                    </article>
-                </li>
+                {% include "blog/includes/post.html" %}
             </ul>
 
         </section>
