@@ -1,14 +1,12 @@
 {% load static %}
 <li>
     <article class="post">
-        <a href="{% url "post-detail-page" "the-chatbot" %}">
-            <img src="{% static "blog/images/chatgpt.png" %}" alt="ChatGPT"/>
+        <a href="{% url "post-detail-page" post.slug %}">
+            <img src="{% static "blog/images/"|add:post.image %}" alt="{{post.title}}"/>
             <div class="post__content">
-                <h3>ChatGPT</h3>
-                <p>ChatGPT, which stands for Chat Generative Pre-trained Transformer,
-                    is a large language model-based chatbot developed by OpenAI 
-                    and launched on November 30, 2022, which enables users to refine 
-                    and steer a conversation towards a desired length, format, style, level of detail, and language
+                <h3>{{post.title}}</h3>
+                <p>
+                    {{post.excerpt}}
                 </p>
             </div>
         </a>
