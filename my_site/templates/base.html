@@ -11,10 +11,10 @@
   </head>
   <body>
     <header id="main-navigation">
-        <a href="">Ali's Blog </a>
+        <h1><a href="{% url "starting-page" %}">Ali's Blog </a></h1>
     </header>
     <nav>
-        <a href=""> All Posts </a>
+        <a href="{% url "posts-page" %}"> All Posts </a>
     </nav>
     {% block content %} {% endblock %}
   </body>
