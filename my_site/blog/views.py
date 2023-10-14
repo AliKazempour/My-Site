@@ -15,6 +15,7 @@ def starting_page(request):
 
 
 def post(request):
+    all_posts = Post.objects.all().order_by()
     return render(request, "blog/all_posts.html", {"all_posts": all_posts})
 
 
