@@ -1,3 +1,4 @@
+from typing import Any
 from django.shortcuts import render,get_object_or_404
 from datetime import date
 from .models import Tag,Post,Author
@@ -10,10 +11,17 @@ def get_date(post):
     return post['date']
 
 
-def starting_page(request):
-    lastest_posts = Post.objects.all().order_by('-date')[:3]
-    return render(request, "blog/start_page.html", {"posts": lastest_posts})
+# def starting_page(request):
+#     lastest_posts = Post.objects.all().order_by('-date')[:3]
+#     return render(request, "blog/start_page.html", {"posts": lastest_posts})
 
+class StartingPageView(ListView):
+    model = Post
+    template_name = "blog/start_page.html"
+    def get_context_data(self, **kwargs):
+        context=super().get_context_data(**kwargs)
+        context["posts"] = Post.objects.all().order_by('-date')[:3]
+        return context
 
 # def post(request):
 #     all_posts = Post.objects.all().order_by("-date")
