@@ -1,7 +1,8 @@
 from django.shortcuts import render,get_object_or_404
 from datetime import date
 from .models import Tag,Post,Author
-
+from django.views.generic import ListView
+from .models import Tag,Author,Post
 all_posts = []
 
 
@@ -14,9 +15,14 @@ def starting_page(request):
     return render(request, "blog/start_page.html", {"posts": lastest_posts})
 
 
-def post(request):
-    all_posts = Post.objects.all().order_by("-date")
-    return render(request, "blog/all_posts.html", {"all_posts": all_posts})
+# def post(request):
+#     all_posts = Post.objects.all().order_by("-date")
+#     return render(request, "blog/all_posts.html", {"all_posts": all_posts})
+
+class PostsView(ListView):
+    model = Post
+    template_name = "blog/all_posts.html"
+    context_object_name = "all_posts"
 
 
 def post_detail(request, slug):
